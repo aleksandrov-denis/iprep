@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
+
+body {
+    font-family: 'IBM Plex Mono', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+#radar-container {
+    position: relative;
+}
+
+#radar {
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: #1f1f1f;
+}
