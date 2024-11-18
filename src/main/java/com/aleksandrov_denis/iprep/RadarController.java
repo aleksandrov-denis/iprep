@@ -3,7 +3,9 @@ package com.aleksandrov_denis.iprep;
 import org.springframework.web.bind.annotation.*;
 
 import java.awt.image.RasterFormatException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @RequestMapping("/radar")
@@ -21,7 +23,7 @@ public class RadarController {
     }
 
     @GetMapping("/getTargets")
-    public HashMap<Integer, Target> getTargets() {
-        return radar.getCollection();
+    public List<Target> getTargets() {
+        return new ArrayList<>(radar.getCollection().values());
     }
 }
