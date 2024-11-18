@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const ctx = canvas.getContext('2d');
     const radarCenter = { x: canvas.width / 2, y: canvas.height / 2 };
     const radarRadius = canvas.width / 2 - 20;
+    const generateTargetButton = document.getElementById('generate-target-btn');
 
     // Function to draw the radar circle and grid
     function drawRadar() {
