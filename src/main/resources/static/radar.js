@@ -42,8 +42,23 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(error => console.error('Error fetching targets:', error));
     }
 
-
-
     // Update the radar every 1 second
     setInterval(updateRadar, 1000);
+
+     // Function to generate a new target when the button is clicked
+    generateTargetButton.addEventListener('click', function () {
+        fetch('http://localhost:8080/radar/generateTarget', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ x: Math.random(), y: Math.random(), speed: Math.random() * 2 })
+        })
+        .then(response => response.json())
+        .then(target => {
+            console.log('New target generated:', target);
+            updateRadar();
+        })
+        .catch(error => console.error('Error generating target:', error));
+    });
 });
