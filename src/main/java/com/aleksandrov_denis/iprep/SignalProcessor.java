@@ -1,3 +1,5 @@
+package com.aleksandrov_denis.iprep;
+
 import java.util.Arrays;
 
 public class SignalProcessor implements Runnable {

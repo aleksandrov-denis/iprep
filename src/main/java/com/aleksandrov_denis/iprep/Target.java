@@ -1,3 +1,5 @@
+package com.aleksandrov_denis.iprep;
+
 import java.util.Random;
 
 public class Target extends Thread {
