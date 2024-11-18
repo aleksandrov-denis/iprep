@@ -10,6 +10,10 @@ public class Radar {
     private HashMap<Integer, Target> collection;
     private ExecutorService executor;
 
+    public HashMap<Integer, Target> getCollection() {
+        return collection;
+    }
+
     public void addTarget(Target newTarget) {
         try {
             if (collection.containsKey(newTarget.getTargetId())) {
