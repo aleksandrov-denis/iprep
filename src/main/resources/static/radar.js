@@ -48,14 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
      // Function to generate a new target when the button is clicked
     generateTargetButton.addEventListener('click', function () {
         fetch('http://localhost:8080/radar/generateTarget', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            method: 'POST'
         })
-        .then(response => response.json())
         .then(target => {
-            console.log('New target generated:', target);
             updateRadar();
         })
         .catch(error => console.error('Error generating target:', error));
