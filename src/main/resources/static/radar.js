@@ -51,8 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ x: Math.random(), y: Math.random(), speed: Math.random() * 2 })
+            }
         })
         .then(response => response.json())
         .then(target => {
