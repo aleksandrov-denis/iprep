@@ -35,13 +35,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to update the radar with targets
     function updateRadar() {
-        fetch('http://localhost:8080/radar/getTargets')
-            .then(response => response.json())
-            .then(targets => {
-                drawRadar();
-                targets.forEach(target => drawTarget(target));
-            })
-            .catch(error => console.error('Error fetching targets:', error));
+        fetch('http://localhost:8080/radar/getTargets', {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(targets => {
+            drawRadar();
+            targets.forEach(target => drawTarget(target));
+        })
+        .catch(error => console.error('Error fetching targets:', error));
     }
 
     // Update the radar every 1 second
@@ -61,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to eliminate all targets when button is clicked
     eliminateTargetsButton.addEventListener('click', function () {
             fetch('http://localhost:8080/radar/eliminateTargets', {
-                method: 'POST'
+                method: 'DELETE'
             })
             .then(target => {
                 updateRadar();

@@ -13,11 +13,6 @@ import java.util.Random;
 public class RadarController {
     private final Radar radar = new Radar();
 
-    @PostMapping("/addTarget")
-    public void addTarget(@RequestBody Target target) {
-        radar.addTarget(target);
-    }
-
     @PostMapping("/generateTarget")
     public void generateTarget() {
         Random r = new Random();
@@ -25,7 +20,7 @@ public class RadarController {
         radar.addTarget(target);
     }
 
-    @PostMapping("/eliminateTargets")
+    @DeleteMapping("/eliminateTargets")
     public void eliminateTargets() {
         radar.removeAllTargets();
     }
