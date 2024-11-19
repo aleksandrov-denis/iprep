@@ -29,9 +29,15 @@ public class Target extends Thread {
     @Override
     public void run() {
         Random random = new Random();
+        double x, y;
         try {
             while (!interrupted()) {
-                position[random.nextInt(2)] += speed;
+                x = random.nextDouble(-1, 1);
+                y = random.nextDouble(-1, 1);
+                position[0] += x * speed;
+                position[1] += y * speed;
+                position[0] = Math.min(Math.max(position[0], -5), 5);
+                position[1] = Math.min(Math.max(position[1], -5), 5);
                 Thread.sleep(500);
             }
         } catch (InterruptedException e){
