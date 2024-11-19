@@ -1,7 +1,6 @@
 package com.aleksandrov_denis.iprep;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -44,7 +43,10 @@ public class Radar {
                 .toList();
         logs.add("---Displaying-Current-Targets-Moving-Faster-Than-" + minSpeed + "-m/s---");
         for (Target target : filtered) {
-            logs.add("Target " + target.getTargetId() + " is at position [" + String.format("%.2f", target.getPosition()[0]) + ", " + String.format("%.2f", target.getPosition()[1]) + "] moving at " + String.format("%.2f", target.getSpeed()) + "m/s");
+            logs.add("Target " + target.getTargetId() + " is at position [" +
+                    String.format("%.2f", target.getPosition()[0]) + ", " +
+                    String.format("%.2f", target.getPosition()[1]) + "] moving at " +
+                    String.format("%.2f", target.getSpeed()) + "m/s");
         }
         return new ArrayList<>(logs);
     }

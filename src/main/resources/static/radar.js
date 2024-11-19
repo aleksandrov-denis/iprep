@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const radarCenter = { x: canvas.width / 2, y: canvas.height / 2 };
     const radarRadius = canvas.width / 2 - 20;
     const generateTargetButton = document.getElementById('generate-target-btn');
-    const eliminateTargetsButton = document.getElementById('eliminate-targets-btn')
+    const clearTargetsButton = document.getElementById('clear-targets-btn')
     const displayTargetsButton = document.getElementById('display-targets-btn')
     const minSpeedInput = document.getElementById('min-speed-input')
     const consoleOutput = document.getElementById('output-area')
@@ -70,15 +70,15 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error generating target:', error));
     });
 
-    // Function to eliminate all targets when button is clicked
-    eliminateTargetsButton.addEventListener('click', function () {
-            fetch('http://localhost:8080/radar/eliminateTargets', {
+    // Function to clear all targets when button is clicked
+    clearTargetsButton.addEventListener('click', function () {
+            fetch('http://localhost:8080/radar/clearTargets', {
                 method: 'DELETE'
             })
             .then(target => {
                 updateRadar();
             })
-            .catch(error => console.error('Error eliminating targets:', error));
+            .catch(error => console.error('Error clearing targets:', error));
     });
 
     // Function to fetch and display targets with speed greater than minSpeed

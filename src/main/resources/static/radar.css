@@ -28,7 +28,7 @@ h1 {
     margin-bottom: 60px;
 }
 
-#generate-target-btn, #eliminate-targets-btn, #display-targets-btn {
+#generate-target-btn, #clear-targets-btn, #display-targets-btn {
     font-family: monospace;
     font-weight: bold;
     color: #1f1f1f;
@@ -45,7 +45,7 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#generate-target-btn:hover, #eliminate-targets-btn:hover, #display-targets-btn {
+#generate-target-btn:hover, #clear-targets-btn:hover, #display-targets-btn {
     background-color: #45a049;
 }
 
