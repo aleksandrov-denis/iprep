@@ -21,7 +21,7 @@ public class RadarController {
     @PostMapping("/generateTarget")
     public void generateTarget() {
         Random r = new Random();
-        Target target = new Target(r.nextInt(1000), new double[]{r.nextInt(-1, 1), r.nextInt(-1, 1)}, r.nextDouble());
+        Target target = new Target(r.nextInt(1000), new double[]{r.nextInt(-1, 1), r.nextInt(-1, 1)}, r.nextDouble(0, 1));
         radar.addTarget(target);
     }
 
