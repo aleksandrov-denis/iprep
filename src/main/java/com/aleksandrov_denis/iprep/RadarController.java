@@ -25,6 +25,11 @@ public class RadarController {
         radar.addTarget(target);
     }
 
+    @PostMapping("/eliminateTargets")
+    public void eliminateTargets() {
+        radar.removeAllTargets();
+    }
+
     @DeleteMapping("removeTarget/{id}")
     public void removeTarget(@PathVariable int withId) {
         radar.removeTarget(withId);

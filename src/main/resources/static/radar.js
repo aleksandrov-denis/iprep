@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const radarCenter = { x: canvas.width / 2, y: canvas.height / 2 };
     const radarRadius = canvas.width / 2 - 20;
     const generateTargetButton = document.getElementById('generate-target-btn');
+    const eliminateTargetsButton = document.getElementById('eliminate-targets-btn')
 
     // Function to draw the radar circle and grid
     function drawRadar() {
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update the radar every 1 second
     setInterval(updateRadar, 1000);
 
-     // Function to generate a new target when the button is clicked
+    // Function to generate a new target when the button is clicked
     generateTargetButton.addEventListener('click', function () {
         fetch('http://localhost:8080/radar/generateTarget', {
             method: 'POST'
@@ -55,5 +56,16 @@ document.addEventListener('DOMContentLoaded', function () {
             updateRadar();
         })
         .catch(error => console.error('Error generating target:', error));
+    });
+
+    // Function to eliminate all targets when button is clicked
+    eliminateTargetsButton.addEventListener('click', function () {
+            fetch('http://localhost:8080/radar/eliminateTargets', {
+                method: 'POST'
+            })
+            .then(target => {
+                updateRadar();
+            })
+            .catch(error => console.error('Error eliminating targets:', error));
     });
 });

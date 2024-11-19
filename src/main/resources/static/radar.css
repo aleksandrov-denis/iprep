@@ -27,7 +27,9 @@ h1 {
     margin-bottom: 60px;
 }
 
-#generate-target-btn {
+#generate-target-btn, #eliminate-targets-btn {
+    width: 150px;
+    height: 50px;
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
@@ -40,6 +42,6 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#generate-target-btn:hover {
+#generate-target-btn:hover, #eliminate-targets-btn:hover {
     background-color: #45a049;
 }
