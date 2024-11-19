@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error fetching targets:', error));
     }
 
-    // Update the radar every 2 seconds
-    setInterval(updateRadar, 2000);
+    // Update the radar every 1 seconds
+    setInterval(updateRadar, 1000);
 
     // Function to generate a new target when the button is clicked
     generateTargetButton.addEventListener('click', function () {
