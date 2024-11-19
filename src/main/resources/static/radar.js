@@ -28,11 +28,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to draw a target on the radar
     function drawTarget(target) {
+        const minSpeed = parseFloat(minSpeedInput.value);
         ctx.beginPath();
         const targetX = radarCenter.x + target.position[0] * radarRadius;
         const targetY = radarCenter.y + target.position[1] * radarRadius;
         ctx.arc(targetX, targetY, 5, 0, 2 * Math.PI);
-        ctx.fillStyle = 'red';
+        if (isNaN(minSpeed)) {
+            ctx.fillStyle = 'green';
+        } else if (target.speed > minSpeed) {
+            ctx.fillStyle = 'red';
+        } else {
+            ctx.fillStyle = 'green';
+        }
         ctx.fill();
     }
 
@@ -49,8 +56,8 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error fetching targets:', error));
     }
 
-    // Update the radar every 1 second
-    setInterval(updateRadar, 1000);
+    // Update the radar every 2 seconds
+    setInterval(updateRadar, 2000);
 
     // Function to generate a new target when the button is clicked
     generateTargetButton.addEventListener('click', function () {

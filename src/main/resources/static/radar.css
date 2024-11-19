@@ -3,13 +3,15 @@ body {
     color: #1f1f1f;
     text-align: center;
     margin: 0;
-    padding: 0;
+    padding-top: 60px;
+    padding-bottom: 60px;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #3d4d39;
     flex-direction: column;
+    height: 100%;
 }
 
 #radar-container {
@@ -62,6 +64,7 @@ h1 {
 
 #output-area {
     white-space: pre-wrap;
+    font-size: 14px;
 }
 
 #controls, #radar-buttons {
@@ -75,6 +78,7 @@ h1 {
     background-color: #1f1f1f;
     color: #4CAF50;
     font-weight: bold;
+    font-size: 14px;
     width: 200px;
     padding: 5px;
     border: 1px solid #4CAF50;

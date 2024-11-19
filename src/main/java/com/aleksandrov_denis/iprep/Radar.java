@@ -42,7 +42,7 @@ public class Radar {
         List<Target> filtered = collection.values().stream()
                 .filter(target -> target.getSpeed() > minSpeed)
                 .toList();
-        logs.add("-------------Displaying-Current-Targets-Moving-Faster-Than-" + minSpeed + "-m/s-------------");
+        logs.add("---Displaying-Current-Targets-Moving-Faster-Than-" + minSpeed + "-m/s---");
         for (Target target : filtered) {
             logs.add("Target " + target.getTargetId() + " is at position [" + String.format("%.2f", target.getPosition()[0]) + ", " + String.format("%.2f", target.getPosition()[1]) + "] moving at " + String.format("%.2f", target.getSpeed()) + "m/s");
         }
