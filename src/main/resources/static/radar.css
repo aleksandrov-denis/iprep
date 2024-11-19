@@ -26,3 +26,20 @@ body {
 h1 {
     margin-bottom: 60px;
 }
+
+#generate-target-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: black;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#generate-target-btn:hover {
+    background-color: #45a049;
+}
