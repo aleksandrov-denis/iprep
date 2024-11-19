@@ -1,14 +1,13 @@
 package com.aleksandrov_denis.iprep;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Radar {
     private HashMap<Integer, Target> collection;
-    private ExecutorService executor;
 
     public HashMap<Integer, Target> getCollection() {
         return collection;
@@ -38,26 +37,16 @@ public class Radar {
         collection.clear();
     }
 
-    public void displayTargetsGT(double minSpeed) {
+    public List<String> displayTargetsGT(double minSpeed) {
+        CopyOnWriteArrayList<String> logs = new CopyOnWriteArrayList<>();
         List<Target> filtered = collection.values().stream()
                 .filter(target -> target.getSpeed() > minSpeed)
                 .toList();
-        executor = Executors.newFixedThreadPool(3);
-        System.out.println("-----------------Displaying-Current-Targets----------------");
+        logs.add("-------------Displaying-Current-Targets-Moving-Faster-Than-" + minSpeed + "-m/s-------------");
         for (Target target : filtered) {
-            executor.submit(new SignalProcessor(target));
+            logs.add("Target " + target.getTargetId() + " is at position [" + String.format("%.2f", target.getPosition()[0]) + ", " + String.format("%.2f", target.getPosition()[1]) + "] moving at " + String.format("%.2f", target.getSpeed()) + "m/s");
         }
-    }
-
-    public void stopDisplay() {
-        // graceful shutdown of executor
-        try {
-            if (!executor.awaitTermination(2, TimeUnit.SECONDS)) {
-                executor.shutdown();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        return new ArrayList<>(logs);
     }
 
     public Radar() {

@@ -34,4 +34,9 @@ public class RadarController {
     public List<Target> getTargets() {
         return new ArrayList<>(radar.getCollection().values());
     }
+
+    @GetMapping("/displayTargetsGT")
+    public List<String> displayTargetsGT(@RequestParam double minSpeed) {
+        return radar.displayTargetsGT(minSpeed);
+    }
 }

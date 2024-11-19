@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const radarRadius = canvas.width / 2 - 20;
     const generateTargetButton = document.getElementById('generate-target-btn');
     const eliminateTargetsButton = document.getElementById('eliminate-targets-btn')
+    const displayTargetsButton = document.getElementById('display-targets-btn')
+    const minSpeedInput = document.getElementById('min-speed-input')
+    const consoleOutput = document.getElementById('output-area')
 
     // Function to draw the radar circle and grid
     function drawRadar() {
@@ -69,5 +72,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 updateRadar();
             })
             .catch(error => console.error('Error eliminating targets:', error));
+    });
+
+    // Function to fetch and display targets with speed greater than minSpeed
+    displayTargetsButton.addEventListener('click', function () {
+        const minSpeed = parseFloat(minSpeedInput.value);
+
+        consoleOutput.innerHTML = "";
+
+        if (isNaN(minSpeed)) {
+            consoleOutput.innerHTML += "Please enter a valid minimum speed.\n";
+            return;
+        }
+
+        fetch(`http://localhost:8080/radar/displayTargetsGT?minSpeed=${minSpeed}`, {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(logs => {
+            logs.forEach(log => {
+                consoleOutput.innerHTML += log + "<br>";
+            });
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        })
+        .catch(error => console.error('Error fetching targets:', error));
     });
 });
