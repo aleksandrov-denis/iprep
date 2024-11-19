@@ -2,6 +2,7 @@
 
 body {
     font-family: 'IBM Plex Mono', sans-serif;
+    color: #1f1f1f;
     text-align: center;
     margin: 0;
     padding: 0;
@@ -9,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #3d343d;
+    background-color: #3d4d39;
     flex-direction: column;
 }
 
@@ -28,13 +29,15 @@ h1 {
 }
 
 #generate-target-btn, #eliminate-targets-btn {
+    font-family: 'IBM Plex Mono', sans-serif;
+    font-weight: bold;
+    color: #1f1f1f;
     width: 150px;
     height: 50px;
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
     background-color: #4CAF50;
-    color: black;
     font-size: 16px;
     border: none;
     border-radius: 5px;
