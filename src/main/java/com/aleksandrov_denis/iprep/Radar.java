@@ -35,7 +35,7 @@ public class Radar {
             Target target = entry.getValue();
             target.interrupt();
         }
-        collection = null;
+        collection.clear();
     }
 
     public void displayTargetsGT(double minSpeed) {
